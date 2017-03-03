@@ -1,16 +1,16 @@
 #include "Menu.h"
 #include <QBrush>
 #include <QGraphicsTextItem>
+#include <QObject>
 
 
-/*
 
 Menu::Menu(QString name, QGraphicsItem *parent) :QGraphicsRectItem(parent)
 {
-    /*setRect(0,0,200,50);
+    setRect(0,0,200,50);
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
-    brush.setColor(Qt::darkCyan);
+    brush.setColor(Qt::blue);
     setBrush(brush);
 
 
@@ -18,7 +18,7 @@ Menu::Menu(QString name, QGraphicsItem *parent) :QGraphicsRectItem(parent)
     QGraphicsTextItem *text = new QGraphicsTextItem(name, this);
     int xPos = rect().width()/2-text->boundingRect().width()/2;
     int yPos = rect().height()/2 - text -> boundingRect().height()/2;
-    text->setPos(200,200);
+    text->setPos(xPos, yPos);
 
     setAcceptHoverEvents(true);
 
@@ -26,7 +26,7 @@ Menu::Menu(QString name, QGraphicsItem *parent) :QGraphicsRectItem(parent)
 
 void Menu::moussePressEvent(QGraphicsSceneMouseEvent *event)
 {
-
+    emit clicked();
 }
 
 
@@ -34,7 +34,7 @@ void Menu::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
 {
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
-    brush.setColor(Qt::cyan);
+    brush.setColor(Qt::red);
     setBrush(brush);
 
 }
@@ -47,4 +47,3 @@ void Menu::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
     setBrush(brush);
 
 }
-*/

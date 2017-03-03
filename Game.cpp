@@ -5,12 +5,16 @@
 #include <QGraphicsPixmapItem>
 #include <QImage>
 #include <QGraphicsRectItem>
+#include <QApplication>
+#include <QObject>
+
+#include <QDebug>
 
 #include "Enemy.h"
 #include "Menu.h"
 #include "Game.h"
 
-
+extern Game *game;
 
 Game::Game(QWidget *parent){
 
@@ -55,13 +59,11 @@ Game::Game(QWidget *parent){
 
 
 
-
-/*
 void Game::displayMainMenu()
 
 {
 
-   QGraphicsTextItem *titleText =new QGraphicsTextItem (QString("hey bro"));
+   QGraphicsTextItem *titleText =new QGraphicsTextItem (QString("MENU"));
     QFont titleFont("comics sans", 50);
     titleText->setFont(titleFont);
     scene->addItem(titleText);
@@ -71,25 +73,22 @@ void Game::displayMainMenu()
     int Posy = 150;
     titleText->setPos(Posx, Posy);
 
+
     //bouton jouer
     Menu *playButton = new Menu(QString("PLAY"));
-   // connect(playButton, SIGNAL(clicked()), this, SLOT(start()));
-
     int Jouer_Posx = this->width()/2 - playButton->boundingRect().width()/2;
-    int Jouer_Posy = 500;
+    int Jouer_Posy = 250;
     playButton->setPos(Jouer_Posx,Jouer_Posy);
+    connect(playButton, SIGNAL(clicked()), this, SLOT(start()));
     scene-> addItem(playButton);
-
-
 
 
     //bouton quitter
     Menu *quitButton = new Menu(QString("QUIT"));
-   // connect(quitButton, SIGNAL(clicked()), this, SLOT(quit()));
-
     int Quitter_Posx = this->width()/2 - quitButton->boundingRect().width()/2;
     int Quitter_Posy = 350;
-    playButton->setPos(Quitter_Posx,Quitter_Posy);
+    quitButton->setPos(Quitter_Posx,Quitter_Posy);
+    connect(quitButton, SIGNAL(clicked()), this, SLOT(quit())) ;
     scene-> addItem(quitButton);
 
 }
@@ -97,17 +96,15 @@ void Game::displayMainMenu()
 
 void Game::start()
 {
+    scene-> clear();
+    game->show();
 
 }
-
 
 void Game::quit()
 {
-    quit();
+    qApp->quit();
 }
-
-*/
-
 
 
 

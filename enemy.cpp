@@ -16,7 +16,6 @@ Enemy::Enemy()
 
     setPixmap(QPixmap(":/image/fille.png"));
     setTransformOriginPoint(50,50);
-    //setPixmap(QSize(50,50));
 
 
    QTimer * timer = new QTimer();

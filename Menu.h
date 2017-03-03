@@ -3,27 +3,30 @@
 
 #include <QGraphicsSceneMouseEvent>
 #include <QGraphicsRectItem>
+#include <QObject>
 
 
-/*
-class Menu: public QGraphicsRectItem{
-   // Q_OBJECT
+
+class Menu: public QObject, public QGraphicsRectItem{
+
+    Q_OBJECT
+
 public:
-   // Menu(QString name, QGraphicsItem* parent=NULL);
+   Menu(QString name, QGraphicsItem* parent=NULL);
 
 
-    /*
+
     void moussePressEvent(QGraphicsSceneMouseEvent *event);
     void hoverEnterEvent(QGraphicsSceneHoverEvent *event);
     void hoverLeaveEvent(QGraphicsSceneHoverEvent *event);
 
 
-//signals:
+signals:
     void clicked();
 
 private:
    QString text;
 
 };
-*/
+
 #endif // MENU_H
