@@ -10,6 +10,10 @@ extern Game * game;
 Bullet::Bullet()
 {
     setPixmap(QPixmap(":/image/banane.png"));
+    setTransformOriginPoint(50,50);
+    setRotation(-90);
+
+
 
    QTimer * timer = new QTimer();
    connect(timer, SIGNAL(timeout()), this, SLOT(move()));
@@ -42,7 +46,7 @@ void Bullet :: move()
 
 
     setPos(x(), y() -10);
-    if (pos().y() >1000){
+    if (pos().y() >1300){
         scene()->removeItem(this);
         delete this;
     }

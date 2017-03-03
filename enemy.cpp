@@ -16,6 +16,7 @@ Enemy::Enemy()
 
     setPixmap(QPixmap(":/image/fille.png"));
     setTransformOriginPoint(50,50);
+    //setPixmap(QSize(50,50));
 
 
    QTimer * timer = new QTimer();
@@ -29,7 +30,7 @@ Enemy::Enemy()
 void Enemy :: move()
 {
     setPos(x(), y() +5);
-    if (pos().y() > 600){
+    if (pos().y() > 1000){
         game->health->decrease();
         scene()->removeItem(this);
         delete this;

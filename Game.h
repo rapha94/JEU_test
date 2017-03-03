@@ -4,6 +4,7 @@
 #include <QGraphicsScene>
 #include <QWidget>
 #include <QGraphicsView>
+#include <QObject>
 
 #include "MyRect.h"
 #include "Score.h"
@@ -11,7 +12,7 @@
 
 
 class Game : public QGraphicsView {
-
+    //Q_OBJECT
 public:
     Game(QWidget * parent=0);
 
@@ -19,6 +20,17 @@ public:
     MyRect *player;
     Score *score;
     Health *health;
+   // void start();
+
+
+    //void quit();
+
+   //void displayMainMenu();
+
+//public slots:
+
+   // void start();
+   // void quit();
 
 
 

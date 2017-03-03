@@ -1,0 +1,21 @@
+<RCC>
+    <qresource prefix="/sons">
+        <file>Crash.mp3</file>
+        <file>Explosion.mp3</file>
+        <file>Tire.mp3</file>
+        <file>King_Kong.jpg</file>
+        <file>Chocolate</file>
+        <file>Chocolate.mp3</file>
+    </qresource>
+    <qresource prefix="/image">
+        <file>King_Kong.jpg</file>
+        <file>banane.jpg</file>
+        <file>fille.jpg</file>
+        <file>NY.jpg</file>
+        <file>banane.png</file>
+        <file>fille.png</file>
+        <file>Image_de_fond.jpg</file>
+        <file>singe.gif</file>
+        <file>singeLOL.gif</file>
+    </qresource>
+</RCC>

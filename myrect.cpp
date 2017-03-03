@@ -13,35 +13,33 @@ MyRect::MyRect(QGraphicsItem *parent) : QGraphicsPixmapItem(parent)
     bullet_son =new QMediaPlayer;
     bullet_son->setMedia(QUrl("qrc:/sons/Tire.mp3"));
 
-
-
-
 }
+
 
 void MyRect::keyPressEvent(QKeyEvent * event)
 {
     if (event->key() == Qt::Key_Left)
     {
         if (pos().x()>0)
-        setPos (x() -20, y());
+        setPos (x() -30, y());
     }
 
     else if (event->key() == Qt::Key_Right)
     {
-        if (pos().x() + 100 <800)
-        setPos(x() +20, y());
+        if (pos().x() + 130 <1200)
+        setPos(x() +30, y());
     }
 
     else if (event->key() == Qt::Key_Up)
     {
-        if (pos().x() <800)
-        setPos(x(), y() -20);
+        if (pos().x() <900)
+        setPos(x(), y() -30);
     }
 
     else if (event->key() == Qt::Key_Down)
     {
-        if (pos().x() + 100 <800)
-        setPos(x(), y() +20);
+        if (pos().x() + 100 <900)
+        setPos(x(), y() +30);
     }
 
 
@@ -67,7 +65,6 @@ void MyRect::keyPressEvent(QKeyEvent * event)
 
 
 
-
 }
 
 void MyRect::spawn()
@@ -75,3 +72,5 @@ void MyRect::spawn()
     Enemy * enemy = new Enemy();
     scene()->addItem(enemy);
 }
+
+
