@@ -2,8 +2,13 @@
 
 #include <QTimer>
 #include <QGraphicsScene>
+#include <QList>
+#include <QMediaPlayer>
+
 #include "stdlib.h"
 #include "Game.h"
+#include "Score.h"
+#include "MyRect.h"
 
 extern Game *game;
 
@@ -28,7 +33,29 @@ Enemy::Enemy()
 
 void Enemy :: move()
 {
-    setPos(x(), y() +5);
+
+   //if (score <= 2)
+       setPos(x(), y() +10);
+   //else
+       //setPos(x(), y() +30);
+
+
+
+       // colision entre l'enemy et le mini horny king kong
+       QList<QGraphicsItem *> collinding_items = collidingItems();
+       for (int i = 0, n = collinding_items.size(); i < n; ++i )
+       {
+           if (typeid(*(collinding_items[i]))==typeid(MyRect)){
+
+               game->displayGOMenu();
+
+           }
+       }
+
+
+
+
+
     if (pos().y() > 1000){
         game->health->decrease();
         scene()->removeItem(this);

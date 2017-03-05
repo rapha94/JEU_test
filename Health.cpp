@@ -21,7 +21,7 @@ void Health::decrease()
 {
 
     if (health<=0)
-        game->quit();
+        game->displayGOMenu();
     else
         health--;
         setPlainText("Health: " + QString::number(health));

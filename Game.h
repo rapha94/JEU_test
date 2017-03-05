@@ -22,18 +22,14 @@ public:
     MyRect *player;
     Score *score;
     Health *health;
-
-
-
-
     void displayMainMenu();
+
+    void displayGOMenu();
 
 public slots:
     void quit();
     void start();
 
-
-   // void start();
 
 
 };

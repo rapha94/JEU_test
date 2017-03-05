@@ -1,5 +1,6 @@
-#ifndef MENU_H
-#define MENU_H
+#ifndef GAME_OVER_H
+#define GAME_OVER_H
+
 
 #include <QGraphicsRectItem>
 #include <QObject>
@@ -8,12 +9,12 @@
 
 
 
-class Menu: public QObject, public QGraphicsRectItem{
+class Game_over: public QObject, public QGraphicsRectItem{
 
     Q_OBJECT
 
 public:
-   Menu(QString name, QGraphicsItem* parent=NULL);
+   Game_over(QString name, QGraphicsItem* parent=NULL);
 
 
 
@@ -29,5 +30,4 @@ private:
    QGraphicsRectItem * text;
 
 };
-
-#endif // MENU_H
+#endif // GAME_OVER_H

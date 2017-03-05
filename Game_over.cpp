@@ -1,10 +1,12 @@
+#include "Game_over.h"
+
 #include "Menu.h"
 #include <QBrush>
 #include <QGraphicsTextItem>
 
 
 
-Menu::Menu(QString name, QGraphicsItem *parent) : QGraphicsRectItem(parent)
+Game_over::Game_over(QString name, QGraphicsItem *parent) : QGraphicsRectItem(parent)
 {
     setRect(0,0,200,50);
     QBrush brush;
@@ -23,13 +25,13 @@ Menu::Menu(QString name, QGraphicsItem *parent) : QGraphicsRectItem(parent)
 
 }
 
-void Menu::moussePressEvent(QGraphicsSceneMouseEvent *event)
+void Game_over::moussePressEvent(QGraphicsSceneMouseEvent *event)
 {
     emit clicked();
 }
 
 
-void Menu::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
+void Game_over::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
 {
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
@@ -38,7 +40,7 @@ void Menu::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
 
 }
 
-void Menu::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
+void Game_over::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
 {
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
