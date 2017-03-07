@@ -9,6 +9,9 @@
 #include "MyRect.h"
 #include "Score.h"
 #include "Health.h"
+#include "Enemy.h"
+#include "Menu.h"
+
 
 
 class Game : public QGraphicsView {
@@ -22,13 +25,14 @@ public:
     MyRect *player;
     Score *score;
     Health *health;
+    //Enemy *enemy;
     void displayMainMenu();
-
     void displayGOMenu();
 
 public slots:
     void quit();
     void start();
+
 
 
 

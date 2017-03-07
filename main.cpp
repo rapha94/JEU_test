@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 
     game = new Game();
     game->start();
-    //game->displayMainMenu();
+   // game->displayMainMenu();
 
 
     return a.exec();

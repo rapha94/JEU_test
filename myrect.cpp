@@ -1,10 +1,10 @@
 #include "MyRect.h"
 #include <QKeyEvent>
 #include "Bullet.h"
-#include<QGraphicsScene>
+#include <QGraphicsScene>
 
 #include "Enemy.h"
-
+#include "Game.h"
 
 
 
@@ -12,7 +12,6 @@ MyRect::MyRect(QGraphicsItem *parent) : QGraphicsPixmapItem(parent)
 {
     bullet_son =new QMediaPlayer;
     bullet_son->setMedia(QUrl("qrc:/sons/Tire.mp3"));
-
 }
 
 
@@ -69,8 +68,10 @@ void MyRect::keyPressEvent(QKeyEvent * event)
 
 void MyRect::spawn()
 {
-    Enemy * enemy = new Enemy();
-    scene()->addItem(enemy);
+
+        Enemy *enemy = new Enemy();
+        scene()->addItem(enemy);
+
 }
 
 

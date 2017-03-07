@@ -25,6 +25,7 @@ public:
 signals:
     void clicked();
 
+
 private:
    QGraphicsRectItem * text;
 

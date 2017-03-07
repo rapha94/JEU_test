@@ -3,7 +3,7 @@
 
 #include <QFont>
 #include <QApplication>
-#include "Game.h"
+//#include "Game.h"
 
 extern Game *game;
 
@@ -22,10 +22,10 @@ void Health::decrease()
 
     if (health<=0)
         game->displayGOMenu();
+
     else
         health--;
         setPlainText("Health: " + QString::number(health));
-
 }
 
 

@@ -4,6 +4,9 @@
 #include <QGraphicsScene>
 #include <QList>
 #include <QMediaPlayer>
+#include <QGraphicsItem>
+#include <QGraphicsPixmapItem>
+#include <QObject>
 
 #include "stdlib.h"
 #include "Game.h"
@@ -11,9 +14,11 @@
 #include "MyRect.h"
 
 extern Game *game;
+//extern Score *score;
 
-Enemy::Enemy()
+Enemy::Enemy(QGraphicsItem * parent) : QGraphicsPixmapItem(parent)
 {
+
 
     // random position
     int random_number = rand() % 700;
@@ -28,16 +33,32 @@ Enemy::Enemy()
 
    timer->start(50);
 
-
 }
+
+
 
 void Enemy :: move()
 {
+    //if (score <= 3 )
+        setPos(x(), y() +10);
+    //else //if (score->score >=2 && score->score <8)
 
-   //if (score <= 2)
-       setPos(x(), y() +10);
-   //else
-       //setPos(x(), y() +30);
+        //setPos(x(), y() +40);
+ /* else if (score >=8, score <20)
+       setPos(x(), y() +15);
+
+   else if (score >=20, score <30)
+       setPos(x(), y() +25);
+
+   else if (score >=30, score <40)
+       setPos(x(), y() +40);
+
+   else if (score >=40, score <60)
+       setPos(x(), y() +50);
+
+   else
+       setPos(x(), y() +80);
+*/
 
 
 
@@ -47,13 +68,11 @@ void Enemy :: move()
        {
            if (typeid(*(collinding_items[i]))==typeid(MyRect)){
 
+
                game->displayGOMenu();
 
            }
        }
-
-
-
 
 
     if (pos().y() > 1000){
