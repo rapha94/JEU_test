@@ -14,9 +14,12 @@
 #include "Menu.h"
 #include "Game.h"
 #include "MyRect.h"
+#include "Control.h"
 
 extern Game *game;
+extern Control *control;
 
+//view
 Game::Game(QWidget *parent){
 
     // création de la scene de jeu
@@ -62,6 +65,7 @@ Game::Game(QWidget *parent){
 
 
 
+//deplacer dans le controller
 void Game::displayMainMenu()
 
 {
@@ -82,7 +86,7 @@ void Game::displayMainMenu()
     int Jouer_Posx = this->width()/2 - playButton->boundingRect().width()/2;
     int Jouer_Posy = 250;
     playButton->setPos(Jouer_Posx,Jouer_Posy);
-   // QObject::connect(playButton, SIGNAL(clicked()), this, SLOT(start()));
+    QObject::connect(playButton, SIGNAL(clicked()), this, SLOT(start()));
     scene-> addItem(playButton);
 
 
@@ -100,6 +104,10 @@ void Game::displayMainMenu()
 }
 
 
+
+
+
+//deplacer dans le controller
 void Game::displayGOMenu()
 
 {
@@ -126,10 +134,16 @@ void Game::displayGOMenu()
     titleText->setDefaultTextColor("orange");
     titleText->setFont(titleFont);
     scene->addItem(titleText);
-
     int Posx = this->width()/2 - titleText->boundingRect().width()/2;
     int Posy = 150;
     titleText->setPos(Posx, Posy);
+
+
+    //Affichage du score
+    scene-> addItem(score);
+    score->setPos(1100, 20);
+    score-> setDefaultTextColor("green");
+
 
 
     //bouton rejouer
@@ -158,19 +172,21 @@ void Game::displayGOMenu()
 }
 
 
+
+//deplacer dans le controller
 void Game::start()
 {
-    game->show();
+
+    control->start();
 
 }
 
 
+
+//deplacer dans le controller
 void Game::quit()
 {
-    qApp->quit();
+    control->quitter();
 }
-
-
-
 
 

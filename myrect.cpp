@@ -43,7 +43,6 @@ void MyRect::keyPressEvent(QKeyEvent * event)
 
 
 
-
     else if(event->key() == Qt::Key_Space)
     {
         Bullet * bullet = new Bullet();

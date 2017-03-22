@@ -3,10 +3,9 @@
 
 #include <QFont>
 #include <QApplication>
-//#include "Game.h"
+#include "Control.h"
 
-extern Game *game;
-
+extern Control *control;
 
 Health::Health(QGraphicsItem *parent) : QGraphicsTextItem(parent)
 {
@@ -17,11 +16,12 @@ Health::Health(QGraphicsItem *parent) : QGraphicsTextItem(parent)
 
 }
 
+
 void Health::decrease()
 {
 
     if (health<=0)
-        game->displayGOMenu();
+        control->afficheGOMenu();
 
     else
         health--;

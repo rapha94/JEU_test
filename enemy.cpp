@@ -7,14 +7,20 @@
 #include <QGraphicsItem>
 #include <QGraphicsPixmapItem>
 #include <QObject>
+#include <QString>
+#include <QDebug>
 
 #include "stdlib.h"
 #include "Game.h"
 #include "Score.h"
 #include "MyRect.h"
+#include "Control.h"
+
 
 extern Game *game;
 //extern Score *score;
+extern Control *control;
+
 
 Enemy::Enemy(QGraphicsItem * parent) : QGraphicsPixmapItem(parent)
 {
@@ -68,15 +74,15 @@ void Enemy :: move()
        {
            if (typeid(*(collinding_items[i]))==typeid(MyRect)){
 
-
-               game->displayGOMenu();
+               control->afficheGOMenu();
 
            }
        }
 
 
     if (pos().y() > 1000){
-        game->health->decrease();
+        control->health_decrease();
+        //game->health->decrease();
         scene()->removeItem(this);
         delete this;
     }

@@ -32,7 +32,8 @@ SOURCES += main.cpp \
     Score.cpp \
     Health.cpp \
     Menu.cpp \
-    Game_over.cpp
+    Game_over.cpp \
+    Control.cpp
 
 HEADERS  += \
     MyRect.h \
@@ -42,7 +43,8 @@ HEADERS  += \
     Score.h \
     Health.h \
     Menu.h \
-    Game_over.h
+    Game_over.h \
+    Control.h
 
 FORMS    += mainwindow.ui
 

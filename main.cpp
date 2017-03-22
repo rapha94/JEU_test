@@ -2,17 +2,23 @@
 
 #include"Game.h"
 
+#include "Control.h"
 
-Game * game;
+
+Game *game;
+Control *control;
+
 
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    game = new Game();
-    game->start();
-   // game->displayMainMenu();
+
+    control->start();
+
+    // une fois que les boutons fonctionnenent, utiliser:
+    //control->afficheMainMenu();
 
 
     return a.exec();

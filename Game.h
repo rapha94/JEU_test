@@ -25,6 +25,7 @@ public:
     MyRect *player;
     Score *score;
     Health *health;
+    //Game *game;
     //Enemy *enemy;
     void displayMainMenu();
     void displayGOMenu();
