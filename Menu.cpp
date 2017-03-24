@@ -1,6 +1,7 @@
 #include "Menu.h"
 #include <QBrush>
 #include <QGraphicsTextItem>
+#include <QDebug>
 
 
 
@@ -23,8 +24,9 @@ Menu::Menu(QString name, QGraphicsItem *parent) : QGraphicsRectItem(parent)
 
 }
 
-void Menu::moussePressEvent(QGraphicsSceneMouseEvent *event)
+void Menu::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
+
     emit clicked();
 }
 

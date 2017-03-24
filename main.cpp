@@ -1,4 +1,5 @@
 #include <QApplication>
+#include <QMediaPlayer>
 
 #include"Game.h"
 
@@ -15,13 +16,19 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 
 
-    control->start();
+    //control->start();
 
     // une fois que les boutons fonctionnenent, utiliser:
-    //control->afficheMainMenu();
+    control->afficheMainMenu();
+
+    QMediaPlayer * music= new QMediaPlayer();
+    music->setMedia(QUrl("qrc:/sons/Chocolate.mp3"));
+    music->play();
 
 
     return a.exec();
 
 }
+
+
 

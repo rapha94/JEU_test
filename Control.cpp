@@ -6,6 +6,7 @@
 #include <QGraphicsScene>
 #include <QGraphicsItem>
 #include <QGraphicsPixmapItem>
+#include <QWidget>
 
 #include "Game.h"
 
@@ -14,13 +15,13 @@
 extern Game *game;
 
 
-/*
+
 void Control::afficheMainMenu()
 {
     game = new Game();
     game->displayMainMenu();
 }
-*/
+
 
 void Control::start()
 {
@@ -40,6 +41,15 @@ void Control::quitter()
 void Control::health_decrease()
 {
     game->health->decrease();
+}
+
+void Control::augmenter_score()
+{
+    game->score->increase();
+}
+
+void Control::score()
+{
 
 }
 

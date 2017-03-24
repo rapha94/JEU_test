@@ -8,7 +8,7 @@
 #include "Game.h"
 
 
-class Control{
+class Control: public QObject {
 
     Q_OBJECT
 
@@ -21,6 +21,8 @@ public:
     void afficheGOMenu();
     void quitter();
     void health_decrease();
+    void augmenter_score();
+    void score();
 
 };
 

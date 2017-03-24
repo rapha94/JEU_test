@@ -20,6 +20,8 @@ extern Game *game;
 extern Control *control;
 
 //view
+
+
 Game::Game(QWidget *parent){
 
     // création de la scene de jeu
@@ -42,7 +44,6 @@ Game::Game(QWidget *parent){
     scene->addItem(player);
 
 
-
     //creation du score
     score = new Score();
     scene-> addItem(score);
@@ -56,10 +57,8 @@ Game::Game(QWidget *parent){
     QObject::connect(timer, SIGNAL(timeout()), player, SLOT(spawn()));
     timer->start(2000);
 
-    QMediaPlayer * music= new QMediaPlayer();
-    music->setMedia(QUrl("qrc:/sons/Chocolate.mp3"));
-    music->play();
     show();
+
 
 }
 
@@ -70,7 +69,15 @@ void Game::displayMainMenu()
 
 {
 
-   QGraphicsTextItem *titleText =new QGraphicsTextItem (QString("MENU"));
+    //image de fond
+    scene = new QGraphicsScene();
+    scene->setSceneRect(0,0,1200,900);
+    setScene(scene);
+    setFixedSize(1200, 900);
+
+    setBackgroundBrush(QBrush(QImage(":/image/NY.jpg")));
+
+    QGraphicsTextItem *titleText =new QGraphicsTextItem (QString("MENU"));
     QFont titleFont("comics sans", 50);
     titleText->setFont(titleFont);
     scene->addItem(titleText);
@@ -95,15 +102,12 @@ void Game::displayMainMenu()
     int Quitter_Posx = this->width()/2 - quitButton->boundingRect().width()/2;
     int Quitter_Posy = 350;
     quitButton->setPos(Quitter_Posx,Quitter_Posy);
-    //connect(quitButton, SIGNAL(clicked()), this, SLOT(quit())) ;
+    QObject::connect(quitButton, SIGNAL(clicked()), this, SLOT(quit())) ;
     scene-> addItem(quitButton);
 
-    scene->removeItem(player);
-    delete player;
-
+    //scene->removeItem(player);
+    //delete player;
 }
-
-
 
 
 
@@ -111,7 +115,6 @@ void Game::displayMainMenu()
 void Game::displayGOMenu()
 
 {
-    //scene-> clear();
 
     //son qd il y a le game over
     QMediaPlayer * son= new QMediaPlayer();
@@ -151,7 +154,7 @@ void Game::displayGOMenu()
     int Jouer_Posx = this->width()/2 - playButton->boundingRect().width()/2;
     int Jouer_Posy = 250;
     playButton->setPos(Jouer_Posx,Jouer_Posy);
-    //connect(playButton, SIGNAL(clicked()), this, SLOT(start()));
+    QObject:connect(playButton, SIGNAL(clicked()), this, SLOT(start()));
     scene-> addItem(playButton);
 
 
@@ -160,14 +163,11 @@ void Game::displayGOMenu()
     int Quitter_Posx = this->width()/2 - quitButton->boundingRect().width()/2;
     int Quitter_Posy = 350;
     quitButton->setPos(Quitter_Posx,Quitter_Posy);
-    connect(quitButton, SIGNAL(clicked()), this, SLOT(quit())) ;
+    QObject::connect(quitButton, SIGNAL(clicked()), this, SLOT(quit())) ;
     scene-> addItem(quitButton);
 
     scene->removeItem(player);
     delete player;
-
-    //scene->removeItem(enemy);
-    //delete enemy;
 
 }
 
@@ -176,11 +176,9 @@ void Game::displayGOMenu()
 //deplacer dans le controller
 void Game::start()
 {
-
     control->start();
 
 }
-
 
 
 //deplacer dans le controller
@@ -188,5 +186,3 @@ void Game::quit()
 {
     control->quitter();
 }
-
-

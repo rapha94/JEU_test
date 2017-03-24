@@ -15,10 +15,13 @@ class Enemy: public QObject, public QGraphicsPixmapItem{
 
 public:
     Enemy (QGraphicsItem * parent=0);
+   // int score;
     //Score *score;
 
 public slots:
     void move(); //Score *score
+
+
 
 
 };

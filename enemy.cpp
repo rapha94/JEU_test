@@ -45,11 +45,14 @@ Enemy::Enemy(QGraphicsItem * parent) : QGraphicsPixmapItem(parent)
 
 void Enemy :: move()
 {
-    //if (score <= 3 )
-        setPos(x(), y() +10);
-    //else //if (score->score >=2 && score->score <8)
+    int score;
 
-        //setPos(x(), y() +40);
+     if (score <= 3 )
+        setPos(x(), y() +10);
+    else //if (score->score >=2 && score->score <8)
+
+        setPos(x(), y() +40);
+
  /* else if (score >=8, score <20)
        setPos(x(), y() +15);
 
@@ -63,8 +66,7 @@ void Enemy :: move()
        setPos(x(), y() +50);
 
    else
-       setPos(x(), y() +80);
-*/
+       setPos(x(), y() +80);*/
 
 
 
@@ -82,7 +84,6 @@ void Enemy :: move()
 
     if (pos().y() > 1000){
         control->health_decrease();
-        //game->health->decrease();
         scene()->removeItem(this);
         delete this;
     }

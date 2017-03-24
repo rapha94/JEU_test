@@ -11,6 +11,7 @@ public:
     void increase();
     int getScore();
 
+
 //private:
 
     int score;
