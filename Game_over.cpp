@@ -48,3 +48,7 @@ void Game_over::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
     setBrush(brush);
 
 }
+
+
+
+

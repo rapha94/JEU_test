@@ -7,29 +7,44 @@
 #include <QGraphicsItem>
 #include <QGraphicsPixmapItem>
 #include <QWidget>
+#include <QMediaPlayer>
+
+
 
 #include "Game.h"
+#include "Menu.h"
 
 
 
-extern Game *game;
-
-
+Control::Control()
+{
+    score = new Score;
+}
 
 void Control::afficheMainMenu()
 {
     game = new Game();
-    game->displayMainMenu();
+    //game->displayMainMenu();
+    game->setScore(score->getScore());
 }
 
 
 void Control::start()
 {
     game = new Game();
+    game->setScore(score->getScore());
+
 }
 
 void Control::afficheGOMenu()
 {
+
+    //son qd il y a le game over
+    QMediaPlayer * son= new QMediaPlayer();
+    son->setMedia(QUrl("qrc:/sons/game_over.mp3"));
+    son->play();
+
+
     game->displayGOMenu();
 }
 
@@ -45,12 +60,10 @@ void Control::health_decrease()
 
 void Control::augmenter_score()
 {
-    game->score->increase();
+    score->increase();
+    game->setScore(score->getScore());
 }
 
-void Control::score()
-{
 
-}
 
 

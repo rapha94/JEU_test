@@ -1,4 +1,4 @@
-#include "MyRect.h"
+#include "Player.h"
 #include <QKeyEvent>
 #include "Bullet.h"
 #include <QGraphicsScene>
@@ -8,14 +8,14 @@
 
 
 
-MyRect::MyRect(QGraphicsItem *parent) : QGraphicsPixmapItem(parent)
+Player::Player(QGraphicsItem *parent) : QGraphicsPixmapItem(parent)
 {
     bullet_son =new QMediaPlayer;
     bullet_son->setMedia(QUrl("qrc:/sons/Tire.mp3"));
 }
 
 
-void MyRect::keyPressEvent(QKeyEvent * event)
+void Player::keyPressEvent(QKeyEvent * event)
 {
     if (event->key() == Qt::Key_Left)
     {
@@ -65,7 +65,7 @@ void MyRect::keyPressEvent(QKeyEvent * event)
 
 }
 
-void MyRect::spawn()
+void Player::spawn()
 {
 
         Enemy *enemy = new Enemy();

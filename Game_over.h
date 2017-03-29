@@ -23,6 +23,7 @@ public:
     void hoverLeaveEvent(QGraphicsSceneHoverEvent *event);
 
 
+    void displayGOmenu();
 signals:
     void clicked();
 

@@ -9,16 +9,12 @@
 Game *game;
 Control *control;
 
-
-
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
 
-    //control->start();
-
-    // une fois que les boutons fonctionnenent, utiliser:
+    control = new Control;
     control->afficheMainMenu();
 
     QMediaPlayer * music= new QMediaPlayer();

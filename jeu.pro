@@ -25,7 +25,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp \
-    MyRect.cpp \
     Bullet.cpp \
     Enemy.cpp \
     Game.cpp \
@@ -33,10 +32,10 @@ SOURCES += main.cpp \
     Health.cpp \
     Menu.cpp \
     Game_over.cpp \
-    Control.cpp
+    Control.cpp \
+    Player.cpp
 
 HEADERS  += \
-    MyRect.h \
     Bullet.h \
     Enemy.h \
     Game.h \
@@ -44,7 +43,8 @@ HEADERS  += \
     Health.h \
     Menu.h \
     Game_over.h \
-    Control.h
+    Control.h \
+    Player.h
 
 FORMS    += mainwindow.ui
 

@@ -13,7 +13,7 @@
 #include "stdlib.h"
 #include "Game.h"
 #include "Score.h"
-#include "MyRect.h"
+#include "Player.h"
 #include "Control.h"
 
 
@@ -74,7 +74,7 @@ void Enemy :: move()
        QList<QGraphicsItem *> collinding_items = collidingItems();
        for (int i = 0, n = collinding_items.size(); i < n; ++i )
        {
-           if (typeid(*(collinding_items[i]))==typeid(MyRect)){
+           if (typeid(*(collinding_items[i]))==typeid(Player)){
 
                control->afficheGOMenu();
 

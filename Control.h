@@ -22,7 +22,12 @@ public:
     void quitter();
     void health_decrease();
     void augmenter_score();
-    void score();
+
+private:
+    Score *score;
+    Game *game;
+
+
 
 };
 

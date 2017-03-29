@@ -9,11 +9,7 @@ class Score :  public QGraphicsTextItem
 public:
     Score(QGraphicsItem * parent=0);
     void increase();
-    int getScore();
-
-
-//private:
-
+    QString getScore();
     int score;
 
 };

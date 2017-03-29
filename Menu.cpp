@@ -2,7 +2,11 @@
 #include <QBrush>
 #include <QGraphicsTextItem>
 #include <QDebug>
+#include <QGraphicsScene>
+#include <QMediaPlayer>
+#include <QDebug>
 
+#include "Control.h"
 
 
 Menu::Menu(QString name, QGraphicsItem *parent) : QGraphicsRectItem(parent)
@@ -49,3 +53,6 @@ void Menu::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
     setBrush(brush);
 
 }
+
+
+

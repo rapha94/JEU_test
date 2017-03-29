@@ -7,14 +7,16 @@
 #include <QGraphicsRectItem>
 #include <QApplication>
 #include <QObject>
+#include <QGraphicsTextItem>
 
 #include <QDebug>
 
 #include "Enemy.h"
 #include "Menu.h"
 #include "Game.h"
-#include "MyRect.h"
+#include "Player.h"
 #include "Control.h"
+#include "Score.h"
 
 extern Game *game;
 extern Control *control;
@@ -34,7 +36,7 @@ Game::Game(QWidget *parent){
 
 
     // création d'un item a mettre dans la scene
-    player = new MyRect();
+    player = new Player();
     player->setPixmap(QPixmap(":/image/singeLOL.gif"));
     player->setPos(400, 500);
 
@@ -45,10 +47,12 @@ Game::Game(QWidget *parent){
 
 
     //creation du score
-    score = new Score();
+    score = new QGraphicsTextItem();
     scene-> addItem(score);
+    score->setDefaultTextColor(Qt::blue);
+    score->setFont(QFont("times", 16));
 
-    health =new Health();
+    health = new Health();
     health->setPos(health->x(), health->y()+25);
     scene->addItem(health);
 
@@ -58,10 +62,14 @@ Game::Game(QWidget *parent){
     timer->start(2000);
 
     show();
-
-
 }
 
+
+void Game ::  setScore(const QString &s)
+{
+         score->setPlainText("Score: " + s);
+
+}
 
 
 //deplacer dans le controller
@@ -70,9 +78,9 @@ void Game::displayMainMenu()
 {
 
     //image de fond
-    scene = new QGraphicsScene();
-    scene->setSceneRect(0,0,1200,900);
-    setScene(scene);
+    QGraphicsScene *sceneMM = new QGraphicsScene();
+    sceneMM->setSceneRect(0,0,1200,900);
+    setScene(sceneMM);
     setFixedSize(1200, 900);
 
     setBackgroundBrush(QBrush(QImage(":/image/NY.jpg")));
@@ -80,13 +88,11 @@ void Game::displayMainMenu()
     QGraphicsTextItem *titleText =new QGraphicsTextItem (QString("MENU"));
     QFont titleFont("comics sans", 50);
     titleText->setFont(titleFont);
-    scene->addItem(titleText);
-
+    sceneMM->addItem(titleText);
 
     int Posx = this->width()/2 - titleText->boundingRect().width()/2;
     int Posy = 150;
     titleText->setPos(Posx, Posy);
-
 
     //bouton jouer
     Menu *playButton = new Menu(QString("PLAY"));
@@ -94,8 +100,7 @@ void Game::displayMainMenu()
     int Jouer_Posy = 250;
     playButton->setPos(Jouer_Posx,Jouer_Posy);
     QObject::connect(playButton, SIGNAL(clicked()), this, SLOT(start()));
-    scene-> addItem(playButton);
-
+    sceneMM-> addItem(playButton);
 
     //bouton quitter
     Menu *quitButton = new Menu(QString("QUIT"));
@@ -103,10 +108,11 @@ void Game::displayMainMenu()
     int Quitter_Posy = 350;
     quitButton->setPos(Quitter_Posx,Quitter_Posy);
     QObject::connect(quitButton, SIGNAL(clicked()), this, SLOT(quit())) ;
-    scene-> addItem(quitButton);
+    sceneMM-> addItem(quitButton);
 
-    //scene->removeItem(player);
-    //delete player;
+    scene->removeItem(player);
+    delete player;
+
 }
 
 
@@ -116,37 +122,30 @@ void Game::displayGOMenu()
 
 {
 
-    //son qd il y a le game over
-    QMediaPlayer * son= new QMediaPlayer();
-    son->setMedia(QUrl("qrc:/sons/game_over.mp3"));
-    son->play();
-    show();
-
-
     //image de fond qd il y a le game over
-    scene = new QGraphicsScene();
-    scene->setSceneRect(0,0,1200,900);
-    setScene(scene);
+    QGraphicsScene * sceneGO = new QGraphicsScene();
+    sceneGO->setSceneRect(0,0,1200,900);
+    setScene(sceneGO);
     setFixedSize(1200, 900);
 
     setBackgroundBrush(QBrush(QImage(":/image/NY.jpg")));
 
     //titre du menu
-    QGraphicsTextItem *titleText =new QGraphicsTextItem (QString("GAME OVER"));
+    QGraphicsTextItem *titleText = new QGraphicsTextItem (QString("GAME OVER"));
     QFont titleFont("arial", 90);
     titleText->setDefaultTextColor("orange");
     titleText->setFont(titleFont);
-    scene->addItem(titleText);
+    sceneGO->addItem(titleText);
     int Posx = this->width()/2 - titleText->boundingRect().width()/2;
     int Posy = 150;
     titleText->setPos(Posx, Posy);
 
 
+
     //Affichage du score
-    scene-> addItem(score);
+    sceneGO-> addItem(score);
     score->setPos(1100, 20);
     score-> setDefaultTextColor("green");
-
 
 
     //bouton rejouer
@@ -155,7 +154,7 @@ void Game::displayGOMenu()
     int Jouer_Posy = 250;
     playButton->setPos(Jouer_Posx,Jouer_Posy);
     QObject:connect(playButton, SIGNAL(clicked()), this, SLOT(start()));
-    scene-> addItem(playButton);
+    sceneGO-> addItem(playButton);
 
 
     //bouton quitter
@@ -164,11 +163,12 @@ void Game::displayGOMenu()
     int Quitter_Posy = 350;
     quitButton->setPos(Quitter_Posx,Quitter_Posy);
     QObject::connect(quitButton, SIGNAL(clicked()), this, SLOT(quit())) ;
-    scene-> addItem(quitButton);
+    sceneGO-> addItem(quitButton);
 
+
+    qDebug()<<"#################";
     scene->removeItem(player);
     delete player;
-
 }
 
 
