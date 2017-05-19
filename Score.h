@@ -11,6 +11,7 @@ public:
     void increase();
     QString getScore();
     int score;
+    void razScore();
 
 };
 

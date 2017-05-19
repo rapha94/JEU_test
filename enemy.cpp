@@ -34,11 +34,17 @@ Enemy::Enemy(QGraphicsItem * parent) : QGraphicsPixmapItem(parent)
     setTransformOriginPoint(50,50);
 
 
-   QTimer * timer = new QTimer();
+   timer = new QTimer();
    connect(timer, SIGNAL(timeout()), this, SLOT(move()));
 
    timer->start(50);
 
+}
+
+void Enemy::razEnemy()
+{
+    timer->stop();
+    delete this;
 }
 
 

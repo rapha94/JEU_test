@@ -15,6 +15,7 @@ public:
     Health(QGraphicsItem * parent=0);
     void decrease();
     int getHealth();
+    void razHealth();
    // Game *game;
 
 private:

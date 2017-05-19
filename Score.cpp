@@ -16,6 +16,11 @@ QString Score::getScore()
     return QString::number(score);
 }
 
+void Score::razScore()
+{
+    delete this;
+}
+
 
 
 

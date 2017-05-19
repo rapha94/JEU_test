@@ -35,5 +35,11 @@ int Health::getHealth()
 }
 
 
+void Health::razHealth()
+{
+    delete this;
+}
+
+
 
 

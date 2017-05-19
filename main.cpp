@@ -15,7 +15,8 @@ int main(int argc, char *argv[])
 
 
     control = new Control;
-    control->afficheMainMenu();
+    //control->afficheMainMenu();
+    control->start();
 
     QMediaPlayer * music= new QMediaPlayer();
     music->setMedia(QUrl("qrc:/sons/Chocolate.mp3"));

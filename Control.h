@@ -23,9 +23,13 @@ public:
     void health_decrease();
     void augmenter_score();
 
+    void reset();
 private:
     Score *score;
     Game *game;
+    Health *health;
+    Enemy *enemy;
+    Player *player;
 
 
 

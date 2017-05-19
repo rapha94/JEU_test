@@ -17,6 +17,8 @@ public:
     Enemy (QGraphicsItem * parent=0);
    // int score;
     //Score *score;
+    void razEnemy();
+    QTimer * timer;
 
 public slots:
     void move(); //Score *score

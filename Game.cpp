@@ -57,7 +57,7 @@ Game::Game(QWidget *parent){
     scene->addItem(health);
 
 
-    QTimer *timer = new QTimer();
+    timer = new QTimer();
     QObject::connect(timer, SIGNAL(timeout()), player, SLOT(spawn()));
     timer->start(2000);
 
@@ -69,6 +69,16 @@ void Game ::  setScore(const QString &s)
 {
          score->setPlainText("Score: " + s);
 
+}
+
+void Game::razGame()
+{
+    delete this;
+}
+
+void Game::stopTimer()
+{
+    timer->stop();
 }
 
 
@@ -121,6 +131,7 @@ void Game::displayMainMenu()
 void Game::displayGOMenu()
 
 {
+    timer->stop();
 
     //image de fond qd il y a le game over
     QGraphicsScene * sceneGO = new QGraphicsScene();
@@ -167,8 +178,8 @@ void Game::displayGOMenu()
 
 
     qDebug()<<"#################";
-    scene->removeItem(player);
-    delete player;
+    //scene->removeItem(player);
+    //delete player;
 }
 
 
@@ -176,7 +187,7 @@ void Game::displayGOMenu()
 //deplacer dans le controller
 void Game::start()
 {
-    control->start();
+    control->reset();
 
 }
 

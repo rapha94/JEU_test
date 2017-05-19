@@ -30,6 +30,9 @@ public:
     void displayMainMenu();
     void displayGOMenu();
     void setScore(const QString &s);
+    QTimer *timer;
+    void razGame();
+    void stopTimer();
 
     void supprimerItem();
 public slots:

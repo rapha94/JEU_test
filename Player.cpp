@@ -42,7 +42,6 @@ void Player::keyPressEvent(QKeyEvent * event)
     }
 
 
-
     else if(event->key() == Qt::Key_Space)
     {
         Bullet * bullet = new Bullet();
@@ -65,10 +64,17 @@ void Player::keyPressEvent(QKeyEvent * event)
 
 }
 
+void Player::razPlayer()
+{
+    scene()->removeItem(enemy);
+    delete enemy;
+    delete this;
+}
+
 void Player::spawn()
 {
 
-        Enemy *enemy = new Enemy();
+        enemy = new Enemy();
         scene()->addItem(enemy);
 
 }
